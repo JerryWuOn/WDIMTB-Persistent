@@ -1,13 +1,3 @@
-:root {
-  --text-light: #000000;
-  --text-dark: #ffffff;
-  --bg-light: #ffffff;
-  --bg-dark: #121212;
-  --border-light: rgba(0, 0, 0, 0.1);
-  --border-dark: rgba(255, 255, 255, 0.1);
-  --button-hover-light: #383838;
-  --button-hover-dark: #ccc;
-}
 
 @media (prefers-color-scheme: light) {
   body {

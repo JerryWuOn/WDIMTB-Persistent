@@ -1,7 +1,15 @@
+"use client";
 import styles from "./page.module.css";
+import React, { useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
+
+  useEffect(() => {
+    document.title = "Jerry's Thoughts";
+  }, []);
+
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>

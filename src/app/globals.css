@@ -10,6 +10,7 @@
   --button-hover-light: #383838;
   --button-hover-dark: #ccc;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,7 +20,7 @@
 
 html,
 body {
-  height: 100%; 
+  height: 100%;
   max-width: 100vw;
   overflow-x: hidden;
 }

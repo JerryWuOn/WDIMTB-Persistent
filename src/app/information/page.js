@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import styles from "./information.module.css";
+import styles from './information.module.css';
 
 export default function Information() {
   const [openIndex, setOpenIndex] = useState(null);

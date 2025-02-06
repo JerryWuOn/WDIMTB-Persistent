@@ -17,6 +17,7 @@
 /.next/
 /out/
 .history
+.gitignore
 
 # production
 /build

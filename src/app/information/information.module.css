@@ -1,3 +1,92 @@
+:root {
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --bg-light: #ffffff;
+  --bg-dark: #121212;
+  --border-light: rgba(0, 0, 0, 0.1);
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --button-hover-light: #383838;
+  --button-hover-dark: #ccc;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+  
+  .information {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    border: 2px solid var(--border-light);
+  }
+
+  .main li {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    border: 2px solid var(--border-light);
+  }
+
+  .main li:hover {
+    background-color: #f2f2f2;
+  }
+
+  .main li .question {
+    font-weight: bold;
+  }
+  
+  .main li .answer-container {
+    background-color: var(--border-light);
+  }
+  
+  a.primary:hover {
+    background: var(--button-hover-light);
+  }
+
+  a.secondary:hover {
+    background: var(--button-hover-light);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+
+  .information {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    border: 2px solid var(--border-dark);
+  }
+
+  .main li {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    border: 2px solid var(--border-dark);
+  }
+
+  .main li:hover {
+    background-color: #333333;
+  }
+
+  .main li .question {
+    font-weight: bold;
+  }
+
+  .main li .answer-container {
+    background-color: var(--border-dark);
+  }
+  
+  a.primary:hover {
+    background: var(--button-hover-dark);
+  }
+
+  a.secondary:hover {
+    background: var(--button-hover-dark);
+  }
+}
+
 .information {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -22,6 +111,7 @@
   gap: 40px;
   z-index: 10;
   min-height: 600px;
+  max-height: 80vh;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,6 +124,11 @@
     --button-secondary-hover: #1a1a1a;
     border: 2px solid var(--gray-alpha-200);
   }
+}
+
+body {
+  height: 100%;
+  overflow-y: auto;
 }
 
 .main {

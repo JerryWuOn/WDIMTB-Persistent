@@ -11,35 +11,63 @@
   transform: translateX(-50%);
   width: 100%;
   max-width: 800px;
-  padding: 40px;
-  background-color: none;
+  background-color: transparent;
   border-radius: 8px;
   border: 2px solid var(--gray-alpha-200);
-  overflow-y: auto;
-  font-family: var(--font-geist-sans);
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  height: 90vh;
   z-index: 10;
-  min-height: 600px;
-  max-height: 80vh;
+  font-family: var(--font-geist-sans);
+}
+
+.header {
+  flex-shrink: 0;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--gray-alpha-200);
+  background: white;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.footer {
+  flex-shrink: 0;
+  padding: 15px;
+  text-align: center;
+  border-top: 2px solid var(--gray-alpha-200);
+  background: white;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   .information {
-    background-color: none;
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
     border: 2px solid var(--gray-alpha-200);
   }
-  .information p {
-    color: black;
-  }
-
+  .information p,
   .question {
     color: black;
   }
-
   .content {
     color: #fff;
   }
@@ -140,6 +168,71 @@ a.secondary {
   min-width: 180px;
 }
 
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;      
+  gap: 12px;            
+  justify-content: center;
+}
+
+.listItem {
+  padding: 8px 14px;        
+  font-size: 14px;          
+  background: #f0f0f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border: 1px solid var(--gray-alpha-200);
+  white-space: nowrap;      
+}
+
+.listItem:hover {
+  background: #ddd;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 5px 20px rgba(199, 199, 199, 0.2);
+}
+
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backButton {
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: #0077ff;
+}
+
+.popupContent {
+  margin-top: 1rem;
+}
+
+
 .footer {
   grid-row-start: 3;
   display: flex;
@@ -161,7 +254,6 @@ a.secondary {
   a.primary:hover {
     background: var(--button-primary-hover);
   }
-
   a.secondary:hover {
     background: var(--button-secondary-hover);
   }
@@ -171,4 +263,5 @@ a.secondary {
   .information {
     border: none;
   }
+
 }

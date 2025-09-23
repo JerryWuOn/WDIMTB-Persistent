@@ -78,7 +78,7 @@ export default function Information() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Jerry On
+          <b style={{ cursor: "pointer" }}>Jerry On</b>
         </a>
       </footer>
     </div>
@@ -96,7 +96,7 @@ const categories = {
 
 const questions = [
   // Career
-  "Why do I feel stuck in my career even though I have a stable job?",
+  "Why do I feel stuck in my career?",
   "Should I follow passion or money?",
   "How do I deal with career comparison?",
   "I feel like an imposter at work. What do I do?",

@@ -60,7 +60,7 @@ export default function Information() {
               <div className={styles.popupHeader}>
                 <h2>{getQuestion(openIndex)}</h2>
                 <button onClick={closePopup} className={styles.backButton}>
-                  ⬅ Back
+                  Back
                 </button>
               </div>
               <div className={styles.popupContent}>

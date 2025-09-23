@@ -4,16 +4,13 @@
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
-  
+
   position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 800px;
-  background-color: transparent;
-  border-radius: 8px;
-  border: 2px solid var(--gray-alpha-200);
   display: flex;
   flex-direction: column;
   height: 90vh;
@@ -25,58 +22,16 @@
   flex-shrink: 0;
   padding: 20px;
   text-align: center;
-  border-bottom: 2px solid var(--gray-alpha-200);
-  background: white;
+  background: var(--background);
 }
 
 .main {
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.footer {
-  flex-shrink: 0;
-  padding: 15px;
-  text-align: center;
-  border-top: 2px solid var(--gray-alpha-200);
-  background: white;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  .information {
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    border: 2px solid var(--gray-alpha-200);
-  }
-  .information p,
-  .question {
-    color: black;
-  }
-  .content {
-    color: #fff;
-  }
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
   gap: 40px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -96,18 +51,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: white;
+  background-color: var(--background);
   padding: 16px;
-  border-radius: 8px;
   cursor: pointer;
-  border: 2px solid var(--gray-alpha-200);
-  transition: none;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
 .main li:hover {
-  cursor: pointer;
-  background-color: white;
-  border-color: var(--gray-alpha-200);
+  border-color: var(--button-primary-hover);
 }
 
 .main li .question {
@@ -145,7 +96,6 @@
   border-radius: 128px;
   height: 48px;
   padding: 0 24px;
-  border: none;
   border: 2px solid transparent;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
@@ -173,24 +123,31 @@ a.secondary {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;      
-  gap: 12px;            
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: center;
 }
 
 .listItem {
-  padding: 8px 14px;        
-  font-size: 14px;          
-  background: #f0f0f0;
+  padding: 8px 14px;
+  font-size: 14px;
+  background: var(--gray-alpha-100);
   border-radius: 6px;
   cursor: pointer;
   transition: 0.2s ease;
   border: 1px solid var(--gray-alpha-200);
-  white-space: nowrap;      
+  white-space: nowrap;
+  color: var(--foreground);
 }
 
 .listItem:hover {
-  background: #ddd;
+  background: var(--gray-alpha-200);
+}
+
+.listItem.active {
+  background: black;       
+  color: white;           
+  border-color: black;
 }
 
 .overlay {
@@ -206,7 +163,7 @@ a.secondary {
 }
 
 .popup {
-  background: white;
+  background: var(--background);
   border-radius: 12px;
   padding: 1.5rem;
   max-width: 600px;
@@ -232,12 +189,13 @@ a.secondary {
   margin-top: 1rem;
 }
 
-
 .footer {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
   justify-content: center;
+  padding: 15px;
+  background: var(--background);
 }
 
 .footer a {
@@ -253,15 +211,74 @@ a.secondary {
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
+    border-color: transparent;
   }
   a.secondary:hover {
     background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (prefers-color-scheme: dark) {
   .information {
-    border: none;
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
   }
 
+  .header,
+  .footer {
+    background: var(--background);
+  }
+
+  .main li {
+    background: var(--background);
+  }
+
+  .listItem {
+    background: var(--gray-alpha-100);
+    color: var(--foreground);
+  }
+  
+  .listItem.active {
+    background: white;
+    color: black;
+    border-color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .information {
+    width: 95%;
+    height: auto;
+    max-height: 90vh;
+  }
+  .main {
+    align-items: center;
+  }
+  .main ol {
+    text-align: center;
+  }
+  .ctas {
+    flex-direction: column;
+  }
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+  a.secondary {
+    min-width: auto;
+  }
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 }

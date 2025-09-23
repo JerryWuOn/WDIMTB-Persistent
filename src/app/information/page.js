@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./information.module.css";
+import Link from "next/link";
+
 
 export default function Information() {
   const [openCategory, setOpenCategory] = useState(null);
@@ -16,7 +18,9 @@ export default function Information() {
     <div className={styles.information}>
       {/* Header (fixed at top) */}
       <header className={styles.header}>
-        <b>My Quarter Life Crisis</b>
+        <Link href="/" passHref>
+          <b style={{ cursor: "pointer" }}>My Quarter Life Crisis</b>
+        </Link>
       </header>
 
       {/* Scrollable content */}
@@ -26,7 +30,7 @@ export default function Information() {
           {Object.keys(categories).map((cat, i) => (
             <li
               key={i}
-              className={styles.listItem}
+              className={`${styles.listItem} ${openCategory === cat ? styles.active : ""}`}
               onClick={() => setOpenCategory(cat)}
             >
               {cat}
